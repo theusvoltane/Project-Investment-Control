@@ -1,13 +1,9 @@
 package com.matheusvoltane;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import com.matheusvoltane.view.CadastroView;
+
+public class App {
+    public static void main( String[] args ){
+        CadastroView tela = new CadastroView();
     }
 }
