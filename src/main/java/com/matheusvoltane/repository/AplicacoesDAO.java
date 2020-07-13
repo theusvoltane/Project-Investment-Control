@@ -27,7 +27,7 @@ public class AplicacoesDAO {
 	}
 	
 	public void adicionar(Aplicacoes aplicacao) throws	Exception  {
-		String query = "INSERT INTO	aplicacoes (numero_aplicacao, nome_aplicacao) VALUES (?,?)";
+		String query = "INSERT INTO	aplicacoes (numero_aplicacao, nome_aplicacao, id_aplicacao) VALUES (?,?,?)";
 		Connection conn = null;
 		
 		try {
@@ -36,6 +36,7 @@ public class AplicacoesDAO {
 			
 			ps.setInt(1, aplicacao.getNumeroAplicacao());
 			ps.setString(2, aplicacao.getNomeAplicacao());
+			ps.setInt(3, aplicacao.getIdAplicacao());
 			
 			ps.execute();
 			
@@ -44,5 +45,24 @@ public class AplicacoesDAO {
 		}finally {
 			this.closeConnection(conn);
 		}
+	}
+
+	public void remover(Aplicacoes aplicacao) throws Exception {
+		String query = "DELETE FROM aplicacoes WHERE nome_aplicacao = ?";
+		Connection conn = null;
+		
+		try {
+			conn = this.getConnection();
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			ps.setString(1, aplicacao.getNomeAplicacao());
+			
+			ps.execute();
+		} catch (SQLException e) {
+			throw new SQLException(e);
+		}finally {
+			this.closeConnection(conn);
+		}
+		
 	}
 }
