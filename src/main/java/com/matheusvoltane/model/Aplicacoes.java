@@ -3,10 +3,16 @@ package com.matheusvoltane.model;
 public class Aplicacoes {
 	private int numeroAplicacao;
 	private String nomeAplicacao;
-	
-	public Aplicacoes() {}
-	
-	public Aplicacoes(int numeroAplicacao, String nomeAplicacao) {
+	private int idAplicacao;
+
+	public Aplicacoes() {
+	}
+
+	public Aplicacoes(int numeroAplicacao, String nomeAplicacao, int idAplicacao) {
+		super();
+		setNumeroAplicacao(numeroAplicacao);
+		setNomeAplicacao(nomeAplicacao);
+		setIdAplicacao(idAplicacao);
 	}
 
 	public int getNumeroAplicacao() {
@@ -14,8 +20,8 @@ public class Aplicacoes {
 	}
 
 	public void setNumeroAplicacao(int numeroAplicacao) {
-		if(numeroAplicacao > 0) {
-		this.numeroAplicacao = numeroAplicacao;
+		if (numeroAplicacao > 0) {
+			this.numeroAplicacao = numeroAplicacao;
 		}
 	}
 
@@ -26,6 +32,22 @@ public class Aplicacoes {
 	public void setNomeAplicacao(String nomeAplicacao) {
 		this.nomeAplicacao = nomeAplicacao;
 	}
-	
-	
+
+	public int getIdAplicacao() {
+		return idAplicacao;
+	}
+
+	public void setIdAplicacao(int idAplicacao) {
+		if (idAplicacao > 0) {
+			this.idAplicacao = idAplicacao;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%-8d", this.getNumeroAplicacao()).concat
+				(String.format("%-60s", this.getNomeAplicacao())).concat
+				(String.format("%-8d", getIdAplicacao()));
+	}
+
 }
