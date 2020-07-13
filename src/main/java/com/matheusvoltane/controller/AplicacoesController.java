@@ -5,11 +5,18 @@ import com.matheusvoltane.repository.AplicacoesDAO;
 
 public class AplicacoesController {
 	
-	AplicacoesDAO aplicacoesDAO = new AplicacoesDAO();
+	AplicacoesDAO aplicacaoDAO = new AplicacoesDAO();
 	
-	public void criarAplicacao (int numeroAplicacao, String nomeAplicacao) throws Exception {
+	public void criarAplicacao (int numeroAplicacao, String nomeAplicacao,int idAplicacao) throws Exception {
 		
-		Aplicacoes aplicacao = new Aplicacoes(numeroAplicacao, nomeAplicacao);
-		aplicacoesDAO.adicionar(aplicacao);
+		Aplicacoes aplicacao = new Aplicacoes(numeroAplicacao, nomeAplicacao, idAplicacao);
+		aplicacaoDAO.adicionar(aplicacao);
+	}
+
+	public void removerAplicacoa(Aplicacoes aplicacao) throws Exception {
+		if (aplicacao != null) {
+			aplicacaoDAO.remover(aplicacao);
+		}
+		
 	}
 }
