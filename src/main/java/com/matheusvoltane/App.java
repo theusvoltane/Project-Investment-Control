@@ -20,6 +20,7 @@ public class App {
 			CriarAplicacaoConsole  criar = new CriarAplicacaoConsole();
 			
 			criar.criarAplicacao();
+
 		} else {
 			RemoverAplicacao remover = new RemoverAplicacao();
 			
