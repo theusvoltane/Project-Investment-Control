@@ -7,9 +7,9 @@ public class AplicacoesController {
 	
 	AplicacoesDAO aplicacaoDAO = new AplicacoesDAO();
 	
-	public void criarAplicacao (int numeroAplicacao, String nomeAplicacao,int idAplicacao) throws Exception {
+	public void criarAplicacao (int numeroAplicacao, String nomeAplicacao) throws Exception {
 		
-		Aplicacoes aplicacao = new Aplicacoes(numeroAplicacao, nomeAplicacao, idAplicacao);
+		Aplicacoes aplicacao = new Aplicacoes(numeroAplicacao, nomeAplicacao);
 		aplicacaoDAO.adicionar(aplicacao);
 	}
 
